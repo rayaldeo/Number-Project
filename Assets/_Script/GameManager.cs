@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     public StreakMeter streakMeter;
     public LeaderBoardManager leaderBoard;
     public HealthMeterManager healthMeter;
+    public Text finalScoreText;
     //Game Count
     public static int gameCount;
     public int GameCount{
@@ -139,8 +140,8 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 0;//Pause Game
         pauseMenu.SetActive(false);
         loseMenu.SetActive(true);
-        
         highScoreMenu.SetActive(false);
+        finalScoreText.text = pointsValue.ToString();
     }
 
     public void ActivateHighScorePanel()
