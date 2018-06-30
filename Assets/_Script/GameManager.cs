@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     //Public Variables
     public Text topNumber, bottomNumber, points;
     public List<GameObject> optionList;
-    public GameObject pauseMenu,loseMenu,highScoreMenu;
+    public GameObject pauseMenu,loseMenu,highScoreMenu,settingsMenu;
     public RandomEquationGenerator randomEquation;
     public StreakMeter streakMeter;
     public LeaderBoardManager leaderBoard;
@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour {
         pauseMenu.SetActive(false);
         loseMenu.SetActive(false);
         highScoreMenu.SetActive(false);
+        settingsMenu.SetActive(false);
         Time.timeScale = 1;//UnPause Game
     }
 
@@ -133,6 +134,7 @@ public class GameManager : MonoBehaviour {
         pauseMenu.SetActive(true);
         loseMenu.SetActive(false);
         highScoreMenu.SetActive(false);
+        settingsMenu.SetActive(false);
     }
 
     public void ActivateLoseMenu()
@@ -141,6 +143,7 @@ public class GameManager : MonoBehaviour {
         pauseMenu.SetActive(false);
         loseMenu.SetActive(true);
         highScoreMenu.SetActive(false);
+        settingsMenu.SetActive(false);
         finalScoreText.text = pointsValue.ToString();
     }
 
@@ -151,6 +154,16 @@ public class GameManager : MonoBehaviour {
         leaderBoard.CreateNewLeaderBoard();
         pauseMenu.SetActive(false);
         loseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+    }
+
+    public void ActivateSettingsMenu()
+    {
+        settingsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        loseMenu.SetActive(false);
+        highScoreMenu.SetActive(false);
+        Time.timeScale = 0;//Pause Game
     }
 
     public void Reset()
