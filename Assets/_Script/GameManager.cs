@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour {
         loadCircle = FindObjectOfType<LoadingScript>();
         //randomNumberGen = FindObjectsOfType<RandomNumberGenerator>();
         speed = speedArray[index];
-        StartNewRound();
         points.text = pointsValue.ToString();
         streakMeter.SetStreakText("X1");
     }
@@ -117,7 +116,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void DeactivateMenus()
+    public void StartNewGame()
     {
         gameCount += 1;
         pauseMenu.SetActive(false);
@@ -125,6 +124,7 @@ public class GameManager : MonoBehaviour {
         highScoreMenu.SetActive(false);
         settingsMenu.SetActive(false);
         Time.timeScale = 1;//UnPause Game
+        StartNewRound();
     }
 
     public void ActivatePauseMenu()

@@ -7,7 +7,18 @@ public class RandomEquationGenerator : MonoBehaviour {
 
     public Text topNumber, bottomNumber;
     public RandomOperator operatorValue;
-    public int subAddMin, subAddMax;
+    public static int subAddMin, subAddMax;
+    public int SubAddMin
+    {
+        get { return subAddMin; }
+        set { subAddMin = value; }
+    }
+
+    public int SubAddMax
+    {
+        get { return subAddMax; }
+        set { subAddMax = value; }
+    }
 
     private int[,] multiplicationMatrix =new int[,] { {0,1,2,3,4,5,6,7,8,9,10,11,12},
                                                       {0,2,4,6,8,10,12,14,16,18,20,22,24},
@@ -21,7 +32,13 @@ public class RandomEquationGenerator : MonoBehaviour {
                                                       {0,10,20,30,40,50,60,70,80,90,100,110,120},
                                                       {0,11,22,33,44,55,66,77,88,99,110,121,132},
                                                       {0,12,24,36,48,60,72,84,96,108,120,132,144}    };
-    
+    public void Awake()
+    {
+        //Set Min and Max Values to Default Values
+        this.SubAddMax = subAddMax = 250;
+        this.SubAddMin = subAddMin = 0;
+    }
+
     public void Update()
     {
         //if (Input.GetKeyDown("space"))
@@ -38,14 +55,14 @@ public class RandomEquationGenerator : MonoBehaviour {
 
     public void CreateRandomAddition()
     {
-        topNumber.text = Random.Range(subAddMin, subAddMax).ToString();
-        bottomNumber.text = Random.Range(subAddMin, subAddMax).ToString();
+        topNumber.text = Random.Range(subAddMin, subAddMax+1).ToString();
+        bottomNumber.text = Random.Range(subAddMin, subAddMax+1).ToString();
     }
 
     public void CreateRandomSubtraction()
     {
-        topNumber.text = Random.Range(subAddMin, subAddMax).ToString();
-        bottomNumber.text = Random.Range(subAddMin, subAddMax).ToString();
+        topNumber.text = Random.Range(subAddMin, subAddMax+1).ToString();
+        bottomNumber.text = Random.Range(subAddMin, subAddMax+1).ToString();
     }
 
     public void CreateRandomDivision()
