@@ -23,6 +23,14 @@ public class GameManager : MonoBehaviour {
         private set { gameCount = value; }
     }
 
+    // Lose Heart Setting
+    public static bool loseNoHeartSetting;
+    public bool LoseNoHeartSetting
+    {
+        get { return loseNoHeartSetting; }
+        set { loseNoHeartSetting = value; }
+    }
+
     //Private
     private RandomOperator rO;
     private int solution;
@@ -109,7 +117,7 @@ public class GameManager : MonoBehaviour {
             {
                 print("You have selected the Wrong answer");
                 EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().Play("FlashAnimation");
-                healthMeter.LoseHeart();
+                if (!this.LoseNoHeartSetting) { healthMeter.LoseHeart(); }
                 streakMeter.Reset();
                 StartNewRound();
             }
