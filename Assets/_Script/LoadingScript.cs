@@ -11,12 +11,28 @@ public class LoadingScript : MonoBehaviour {
     public float speed;
     public GameManager gameManager;
     public HealthMeterManager healtManager;
+
+    //No Time Limit Setting
+    public static bool noTimeLimitSetting;
+    public bool NoTimeLimitSetting
+    {
+        get { return noTimeLimitSetting; }
+        set { noTimeLimitSetting = value; }
+    }
+
     private float timeLeft;
     
     public void SetLoadingScript( float currentAmount, float speed)
     {
         this.currentAmount = currentAmount;
-        this.speed = speed;
+        print("No Time Limit Setting: " + NoTimeLimitSetting + " Speed: " + speed +" Current Amount: "+ currentAmount);
+        if (!NoTimeLimitSetting) {
+            this.speed = speed;
+        }else
+        {
+            this.speed = 0.0f;
+        }
+       
     }
          	
 	// Update is called once per frame
@@ -33,7 +49,7 @@ public class LoadingScript : MonoBehaviour {
         }
 
         loadingBar.GetComponent<Image>().fillAmount = currentAmount / 100;
-	}
+    }
 
     public float GetTimeLeft()
     {

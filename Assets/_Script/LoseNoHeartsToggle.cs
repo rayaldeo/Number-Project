@@ -14,6 +14,9 @@ public class LoseNoHeartsToggle : MonoBehaviour {
         if (loseNoHeartsToggle.isOn)
         {
             gameManager.LoseNoHeartSetting = true;
+        }else
+        {
+            gameManager.LoseNoHeartSetting = false;
         }
 	}
 }
