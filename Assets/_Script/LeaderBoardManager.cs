@@ -50,18 +50,25 @@ public class LeaderBoardManager : MonoBehaviour {
             SaveScore(0);
         }
         print("New Session Array Size: " + newSessionArray.Count);
-        for (int i = newSessionArray.Count; i > newSessionArray.Count - amountOfHighScoresNeeded; i--)
+        try
         {
-            print("LeaderBoardManager: " /*+ newSessionArray[i]*/ + "Index: " + i);
-            highScoreTextArray[newSessionArray.Count - i].text = newSessionArray[i-1].ToString();
-            //print(newSessionArray[i]);
-            PlayerPrefs.SetInt("HighScore0" + (newSessionArray.Count - i).ToString(), (int)newSessionArray[i-1]);
-            //print("HighScore0" + (newSessionArray.Count - (i + 1)).ToString());
-            //print("High Score 00:"+PlayerPrefs.GetInt("HighScore00", 0));
-            //print("High Score 01:" + PlayerPrefs.GetInt("HighScore01", 0));
-            //print("High Score 02:" + PlayerPrefs.GetInt("HighScore02", 0));
-            //print("High Score 03:" + PlayerPrefs.GetInt("HighScore03", 0));
+            for (int i = newSessionArray.Count; i > newSessionArray.Count - amountOfHighScoresNeeded; i--)
+            {
+                print("LeaderBoardManager: " /*+ newSessionArray[i]*/ + "Index: " + i);
+                highScoreTextArray[newSessionArray.Count - i].text = newSessionArray[i - 1].ToString();
+                //print(newSessionArray[i]);
+                PlayerPrefs.SetInt("HighScore0" + (newSessionArray.Count - i).ToString(), (int)newSessionArray[i - 1]);
+                //print("HighScore0" + (newSessionArray.Count - (i + 1)).ToString());
+                //print("High Score 00:"+PlayerPrefs.GetInt("HighScore00", 0));
+                //print("High Score 01:" + PlayerPrefs.GetInt("HighScore01", 0));
+                //print("High Score 02:" + PlayerPrefs.GetInt("HighScore02", 0));
+                //print("High Score 03:" + PlayerPrefs.GetInt("HighScore03", 0));
+            }
         }
+        catch (System.ArgumentOutOfRangeException)
+        {
+            print("LeaderBoard Array not finished yet");
+        } 
     }
 
     //Testing
