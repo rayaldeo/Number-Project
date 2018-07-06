@@ -25,7 +25,7 @@ public class LoadingScript : MonoBehaviour {
     public void SetLoadingScript( float currentAmount, float speed)
     {
         this.currentAmount = currentAmount;
-        print("No Time Limit Setting: " + NoTimeLimitSetting + " Speed: " + speed +" Current Amount: "+ currentAmount);
+        //print("No Time Limit Setting: " + NoTimeLimitSetting + " Speed: " + speed +" Current Amount: "+ currentAmount);
         if (!NoTimeLimitSetting) {
             this.speed = speed;
         }else

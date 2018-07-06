@@ -25,6 +25,11 @@ public class DisplaySliderValue : MonoBehaviour {
         maxValueText.text = maxValueSlider.value.ToString();
         randomEquation.SubAddMax = (int)maxValueSlider.value;
         randomEquation.SubAddMin = (int)minValueSlider.value;
+
+        if(maxValueSlider.value< minValueSlider.value)
+        {
+            minValueSlider.value = maxValueSlider.value - 5;
+        }
     }
 }
 

@@ -108,14 +108,14 @@ public class GameManager : MonoBehaviour {
             //print("Solution: " + solution);
             if (value == solution)//Correct Answer
             {
-                print(EventSystem.current.currentSelectedGameObject.name + " You have selected the Right answer");
+                //print(EventSystem.current.currentSelectedGameObject.name + " You have selected the Right answer");
                 UpdateScore(correctAnswerValue * streakMeter.GetStreakValue(), false);//Update Score and add in Multiplier
                 streakMeter.SetMeterAmount(streakMeterIncrementValue);
                 IncreaseDificulty();
                 StartNewRound();
             }else
             {
-                print("You have selected the Wrong answer");
+                //print("You have selected the Wrong answer");
                 EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().Play("FlashAnimation");
                 if (!this.LoseNoHeartSetting) { healthMeter.LoseHeart(); }
                 streakMeter.Reset();

@@ -10,7 +10,7 @@ public class NoTimeLimitSetting : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        print("No Time Limit Setting:" + noTimeLimitToggle.isOn);
+        //print("No Time Limit Setting:" + noTimeLimitToggle.isOn);
         if (noTimeLimitToggle.isOn)
         {
             loadingScript.NoTimeLimitSetting = true;
